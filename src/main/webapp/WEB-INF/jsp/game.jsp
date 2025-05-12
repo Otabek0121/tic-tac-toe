@@ -70,7 +70,7 @@
 </head>
 <body>
 
-<h1>Tic Tac Toe O'yini (MVC + Service)</h1>
+<h1>Tic Tac Toe</h1>
 
 <%-- O'yin holatini ko'rsatish --%>
 <div class="status message">
@@ -107,7 +107,6 @@
                 <c:when test="${empty cellValue && not gameState.isGameOver()}">
                     <a class="cell empty" href="${pageContext.request.contextPath}/move?cell=${cellIndex}"
                        title="Hujayra ${cellIndex} ga yurish">
-                         
                     </a>
                 </c:when>
                 <c:otherwise>

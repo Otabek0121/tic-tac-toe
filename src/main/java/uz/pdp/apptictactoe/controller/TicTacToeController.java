@@ -73,5 +73,19 @@ public class TicTacToeController {
         return "redirect:/game";
     }
 
+    @GetMapping("/auto-move")
+    public String autoMove(HttpSession session) {
+        GameState gameState = (GameState) session.getAttribute(GAME_STATE_SESSION_ATTR);
+        if (gameState == null || gameState.isGameOver()) {
+            return "redirect:/game";
+        }
+
+        if ("O".equals(gameState.getCurrentPlayer())) {
+            gameService.makeSmartMove(gameState);
+        }
+
+        return "redirect:/game";
+    }
+
 
 }

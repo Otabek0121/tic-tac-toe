@@ -40,7 +40,6 @@
             cursor: default;
         }
 
-        /* To'la katak bosilmasligini bildirish uchun */
         .status {
             margin-bottom: 15px;
             font-size: 1.2em;
@@ -71,6 +70,10 @@
 <body>
 
 <h1>Tic Tac Toe</h1>
+
+<c:if test="${gameState.currentPlayer == 'O' && not gameState.isGameOver()}">
+    <c:redirect url="${pageContext.request.contextPath}/auto-move"/>
+</c:if>
 
 <%-- O'yin holatini ko'rsatish --%>
 <div class="status message">
